@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/atomic-app/react-svg",
   "dependencies": {
-    "react": "^0.12.1"
+    "react": "^0.14.1"
   },
   "devDependencies": {
     "chai": "^1.10.0",

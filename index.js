@@ -1,24 +1,25 @@
 var React = require('react'),
-  SVGInjector = require('./libs/svg-injector.js');
+    ReactDOM = require('react-dom'),
+    SVGInjector = require('./libs/svg-injector.js');
 
 svgConfig = function(args) {
-  return {
+return {
     evalScripts: args.evalScripts || 'never',
     each: args.callback || null
-  };
+};
 };
 
-var SVGComponent = React.createClass({
-  componentDidMount: function(){
-    return SVGInjector([this.getDOMNode()], svgConfig(this.props));
-  },
+module.exports = React.createClass({
+    displayName: 'SVG',
+    componentDidMount: function() {
+        return SVGInjector([ReactDOM.findDOMNode(this)], svgConfig(this.props));
+    },
 
-  render: function(){
-    return React.DOM.img({
-      className: this.props.className,
-      'data-src': this.props.path,
-      'data-fallback': this.props.fallbackPath});
-  }
+    render: function() {
+        return React.createElement('img', {
+            className: this.props.className,
+            'data-fallback': this.props.fallbackPath,
+            'data-src': this.props.path
+        });
+    }
 });
-
-module.exports = SVGComponent
