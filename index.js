@@ -1,6 +1,6 @@
 var React = require('react'),
     ReactDOM = require('react-dom'),
-    SVGInjector = require('./libs/svg-injector.js');
+    SVGInjector = require('svg-injector');
 
 svgConfig = function(args) {
 return {
